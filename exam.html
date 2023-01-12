@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        var arr = [{ name: "akshay", address: "abc", hobbies: "swimming" }]
+
+
+        function submitobj() {
+            alert("in submit");
+            var name = document.getElementById("name").value
+            var address = document.getElementById("add").value
+            var hobbies = document.getElementById("hobb").value
+
+            if (cheakaname(name)) {
+                ob = { name, address, hobbies };
+                arr.push(ob);
+                alert("add succesfully");
+
+            }
+        }
+
+
+        function cheakaname(name) {
+            if (name.length > 6) {
+                alert("name should be less than 6 char");
+                return false;
+            }
+            alert("valid name");
+            return true;
+        }
+
+
+
+
+
+        function displayobj() {
+            alert("hi in display");
+            var str = "";
+
+            for (var ob of arr) {
+                document.getElementById("mydiv").innerHTML += `${ob.name},${ob.hobbies},${ob.address}`
+
+
+            }
+
+
+
+        }
+
+        function displaydata() {
+            document.getElementById("one").classList.remove("myclass");
+            document.getElementById("one").classList.add("myc");
+            displayobj();
+        }
+
+
+
+        function change() {
+
+            document.getElementById("name").setAttribute("style", "background-color:yellow");
+        }
+
+        function fun1() {
+            document.getElementById("name").setAttribute("style", "background-color:white");
+        }
+
+    </script>
+
+    <style>
+        .myclass {
+            background-color: aqua;
+
+        }
+
+        .myc {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <form>
+
+        name :<input type="text" name="nme" id="name" onfocus="change()" onblur="fun1()"><br><br>
+        address :<input type="text" name="nme" id="add" required><br><br>
+        hobbies:<input type="text" name="nme" id="hobb" required><br><br>
+
+
+        <button type="button" name="btn" id="btn1" onclick="submitobj()">submiit</button>&nbsp;&nbsp;&nbsp;
+        <button type=button name="btn" id="btn11    " onclick="displayobj()">display</button>
+    </form>
+    <div id="mydiv"></div>
+
+
+
+
+</body>
+
+</html>
